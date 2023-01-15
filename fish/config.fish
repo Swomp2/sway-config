@@ -1,0 +1,16 @@
+if status is-login
+   	export PATH="$PATH:/var/lib/flatpak/exports/bin"
+	export PATH="$PATH:/usr/local/libexec"
+   	export QT_QPA_PLATFORM="wayland"
+	export XDG_CURRENT_DESKTOP="sway"
+	export QT_QPA_PLATFORMTHEME="qt5ct"
+	exec dbus-launch --exit-with-session sway
+end
+
+
+alias reboot="sudo openrc-shutdown -r now"
+alias poweroff="sudo openrc-shutdown -p now"
+
+function fish_greeting
+	neofetch
+end

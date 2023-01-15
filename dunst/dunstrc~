@@ -1,0 +1,51 @@
+[global]
+		font = "Liberation Serif 12"
+                corner_radius = 5
+		width = (20, 400)
+		origin = top-center
+		offset = 10x10
+		format = "<b>%s</b>\n%b"
+		force_xwayland = false
+		layer = top
+		text_icon_padding = 10
+		horizontal_padding = 10
+
+[change-urgency]
+		appname = "notify-send"
+		urgency = low
+
+[urgency_low]
+		background = "#a3be8c"
+		foreground = "#2e3440"
+		frame_color = "#a3be8c"
+		timeout = 5
+		alignment = left
+		hide_text = false
+		set_transient = true
+		icon_position = left
+		min_icon_size = 64
+		max_icon_size = 128
+
+[urgency_normal]
+		background = "#a3be8c"
+		foreground = "#2e3440"
+		frame_color = "#a3be8c"
+		timeout = 5
+		alignment = left
+		hide_text = false
+		set_transient = true
+		icon_position = left
+		min_icon_size = 64
+		max_icon_size = 128
+
+[urgency_critical]
+		background = "#bf616a"
+		foreground = "#2e3440"
+		frame_color = "#bf616a"
+		timeout = 5
+		alignment = left
+		hide_text = false 
+		set_transient = true
+		icon_position = left
+		min_icon_size = 64
+		max_icon_size = 128
