@@ -8,9 +8,13 @@ if status is-login
 end
 
 
-alias reboot="sudo openrc-shutdown -r now"
-alias poweroff="sudo openrc-shutdown -p now"
+alias reboot="doas reboot"
+alias poweroff="doas poweroff"
+
+function fish_prompt
+	 set_color "#a3be8c"
+	 echo '['$USER'|'$hostname (set_color "#5e81ac")(pwd)(set_color "#a3be8c")']'(set_color "#a3be8c")'==['(set_color normal) 
+end
 
 function fish_greeting
-	neofetch
 end

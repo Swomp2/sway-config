@@ -5,8 +5,9 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-# xdg-desktop-portal-wl
+# xdg-desktop-portal-wlr
 exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec /usr/lib/xdg-desktop-portal -r & /usr/local/libexec/xdg-desktop-portal-wlr
 
 # auto disable bluetooth
 exec bluetoothctl power off
@@ -33,11 +34,11 @@ exec --no-startup-id waybar &
 exec udiskie &
 
 # swaylock
-exec swayidle -w timeout 300 "swaylock -c 2e3440" timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "swaylock -c 2e3440"
+exec swayidle -w timeout 300 "~/.config/sway/lockscreen.sh" timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "~/.config/sway/lockscreen.sh"
 exec sway-audio-idle-inhibit 
 
 # screenshot
-bindsym Print exec --no-startup-id grim ~/Pictures/$(date +"%Y%m%d%H%M%S")_screenshot.png -q 100 && notify-send "Скриншот сделан"
+bindsym Print exec --no-startup-id grim ~/Pictures/screenshots/$(date +"%Y%m%d%H%M%S")_screenshot.png -q 100 && notify-send "Скриншот сделан"
 
 # default volume
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 30%
@@ -78,7 +79,6 @@ client.focused_inactive         #81A1C1         #434C5E         #5E81AC         
 client.unfocused                #81A1C1         #434C5E         #5E81AC         #434C5E       #434C5E
 
 # borders and titles
-default_border none
 for_window [title="^.*"] title_format ""
 default_border pixel 2 
 default_floating_border pixel 2
@@ -108,11 +108,11 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+c kill
 
-# start dmenu (a program launcher)
+# start wofi (a program launcher)
 bindsym $mod+d exec --no-startup-id wofi --show=drun
 
 # start swaylock
-bindsym $mod+Shift+e swaylock -c 2e3440
+bindsym $mod+o exec --no-startup-id ~/.config/sway/lockscreen.sh
 
 # change focus
 bindsym $mod+j focus left
